@@ -1,12 +1,20 @@
-class SiteController {
-    // [GET] /news
-    home(req, res) {
-        res.render('home');
-    }
+const Course = require("./models/Course");
 
-    search(req, res) {
-        res.render('search');
+class SiteController {
+  // [GET] /news
+
+  async home(req, res) {
+    try {
+      const courses = await Course.find({});
+      res.json(courses);
+    } catch (error) {
+      res.status(400).json({ error: "ERROR!!!" });
     }
+  }
+
+  search(req, res) {
+    res.render("search");
+  }
 }
 
 module.exports = new SiteController();
