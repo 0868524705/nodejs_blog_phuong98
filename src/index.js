@@ -9,8 +9,9 @@ const route = require("./routes");
 const db = require("./config/db");
 
 // connect to db
-db.connect();
+db.main();
 
+app.use(morgan("combined"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
