@@ -3,14 +3,20 @@ const Course = require("./models/Course");
 class SiteController {
   // [GET] /news
 
-  async home(req, res) {
+  async home(req, res, next) {
     try {
-      const courses = await Course.find({});
-      res.json(courses);
+      const courses = await Course.find({}).lean();
+      res.render("home", { courses });
     } catch (error) {
-      res.status(400).json({ error: "ERROR!!!" });
+      next(error);
     }
   }
+  // cách read db sử dụng promise
+  // index(req,res,next) {
+  //   Course.find({})
+  //   .then(courses => res.json(courses))
+  //   .catch(next);
+  // }
 
   search(req, res) {
     res.render("search");
