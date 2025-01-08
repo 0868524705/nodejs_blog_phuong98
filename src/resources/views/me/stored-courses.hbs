@@ -1,0 +1,37 @@
+
+<div class="mt-4">
+  <div class="container">
+    <h2>Khóa Học của tôi</h2>
+
+  <div class="mt-4">
+    <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên</th>
+        <th scope="col">VideoID</th>
+        <th scope="col">Level</th>
+        <th scope="col">Author</th>
+        <th scope="col" colspan='2'>Create time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each courses}}
+      <tr>
+        <th scope="row"> {{sum @index 1}} </th>
+        <td>{{this.name}}</td>
+        <td>{{this.videoID}}</td>
+        <td>{{this.level}}</td>
+        <td>{{this.author}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          <a href="/courses/{{this._id}}/edit" class="btn btn-primary">Sửa</a>
+          <a href="" class="btn btn-primary">Xóa</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>

@@ -11,13 +11,14 @@ class SiteController {
       next(error);
     }
   }
+
+
   // cách read db sử dụng promise
   // index(req,res,next) {
   //   Course.find({})
   //   .then(courses => res.json(courses))
   //   .catch(next);
   // }
-
   search(req, res) {
     res.render("search");
   }

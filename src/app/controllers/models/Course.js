@@ -5,12 +5,13 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 const Course = new Schema(
   {
-    name: { type: String, maxLength: 200 },
-    description: { type: String, maxLength: 200 },
-    image: { type: String, maxLength: 200 },
+    name: { type: String, required: true, },
+    description: { type: String },
+    img: { type: String },
     slug: { type: String, slug: "name", unique: true },
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    videoID: { type: String },
+    author: { type: String },
+    level: { type: String },
   },
   {
     timestamps: true,
